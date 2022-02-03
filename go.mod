@@ -1,4 +1,4 @@
-module innnz.com/utils
+module github.com/mysticzap/utils/tags
 
 go 1.16
 
