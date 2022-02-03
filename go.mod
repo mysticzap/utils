@@ -1,4 +1,4 @@
-module github.com/mysticzap/utils/tags
+module github.com/mysticzap/utils
 
 go 1.16
 
