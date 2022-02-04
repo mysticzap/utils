@@ -6,8 +6,10 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 	"os"
 )
-
-func CreateLogger() *zap.Logger {
+/**
+ * 实例化日志类对象
+ */
+func CreateLogger(serviceName string) *zap.Logger {
 	hook := lumberjack.Logger{
 		Filename:   "./logs/spikeProxy1.log", // 日志文件路径
 		MaxSize:    128,                      // 每个日志文件保存的最大尺寸 单位：M
@@ -46,7 +48,7 @@ func CreateLogger() *zap.Logger {
 	// 开启文件及行号
 	development := zap.Development()
 	// 设置初始化字段
-	filed := zap.Fields(zap.String("serviceName", "one"))
+	filed := zap.Fields(zap.String("service", serviceName))
 	// 构造日志
 	return zap.New(core, caller, development, filed)
 }
